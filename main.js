@@ -3,7 +3,7 @@
     data() {
         return {
             password: '',
-            attributes: {
+            settings: {
             length: 12,
             digits: 4,
             symbols: 8,
