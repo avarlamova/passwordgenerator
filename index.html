@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,13 +6,19 @@
     <title>Password generator</title>
 </head>
 <body>
-    <div id="form">
+    <div id="password">
+        <div id="form">
         <span id="password" class="password" v-on:click="copy">{{ password }}</span>
     </div>
-
-    <input type="range" class="range-slider" min="6" max="32">
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script>
+   <input type="range" v-model="settings.length" id="range" class="range-slider" min="6" max="32" value="14"> Choose length <br />
+    <label for="range" > Length: {{ settings.length }}</label><br/>
+        <input type="checkbox">Include digits<br />
+        <input type="checkbox">Include lowercase letters<br />
+        <input type="checkbox">Include uppercase letters <br />
+        <input type="checkbox">Include special symbols<br />
+    </div>
+    
+     <script src="vue.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
