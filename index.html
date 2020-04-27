@@ -8,17 +8,15 @@
 <body>
     <div id="password">
         <div id="form">
-        <span id="password" class="password" v-on:click="copy">{{ password }}</span>
+        <span id="password" class="password">{{ password }}</span>
     </div>
    <input type="range" v-model="settings.length" id="range" class="range-slider" min="6" max="32" value="14"> Choose length <br />
     <label for="range" > Length: {{ settings.length }}</label><br/>
-        <input type="checkbox">Include digits<br />
-        <input type="checkbox">Include lowercase letters<br />
-        <input type="checkbox">Include uppercase letters <br />
-        <input type="checkbox">Include special symbols<br />
+    <label v-for="option in options" />{{ option.name }} 
+ <input type="checkbox" v-model="option.status"><br />   
     </div>
     
-     <script src="vue.js"></script>
+    <script src="https://unpkg.com/vue"></script>
     <script src="main.js"></script>
 </body>
 </html>
