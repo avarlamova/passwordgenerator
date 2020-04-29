@@ -29,6 +29,18 @@
             length: 12,
             digits: 4,
             symbols: 8,
-        }
-    }
+        },
+        count:0,
+    },
+     computed: {
+          counter: function () {
+              count= this.count;
+              return [...this.options].map(function(item) {
+                  if ([this.options].status === true) {
+                      count++;
+                  }
+                  return count;
+              })
+          }
+          },
 })
