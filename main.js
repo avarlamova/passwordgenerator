@@ -4,43 +4,55 @@
         options: [
             {
                 name: 'Include lowercase',
-                status: true,
-                chars: 'abcdefghjkmnopqrstuvwxyz'
+                checked: true,
             },
 
             {
                 name: 'Include uppercase',
-                status: false,
-                chars: 'ABCDEFGHJKLMNOPQRSTUVWXYZ'
+                checked: false,
             },
             {
                 name: 'Include digits',
-                status: true,
-                chars: '0123456789'
+                checked: true,
             },
             {
                 name: 'Include special symbols',
-                status: false,
-                chars: '!$%&?+*#-/'
+                checked: false,
             }
         ],
             password: '',
             settings: {
             length: 12,
-            digits: 4,
-            symbols: 8,
         },
-        count:0,
     },
-     computed: {
-          counter: function () {
-              count= this.count;
-              return [...this.options].map(function(item) {
-                  if ([this.options].status === true) {
-                      count++;
-                  }
-                  return count;
-              })
-          }
-          },
+     generatePassword() {
+            let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+            let specialsymbols = ["!", "$", "%", "&", "?", "+", "*", "#", "-", "/"];
+            let arr = [];
+            let length = this.settings.length;
+            let actualcount = 0;
+            [...this.options]
+                .map(item => {
+                    if (item.checked === true)
+                        actualcount = actualcount + 1;
+                })
+            if (actualcount === 0) return 'You should check at least one option!';
+            [...this.options]
+                .map(item => {
+                    for (i = 0; i < length; i++) {
+                        let random = Math.floor(Math.random() * length);
+                        if (item.name === 'Include lowercase' && item.checked === true)
+                            arr.push(letters[random]);
+                        if (item.name === 'Include uppercase' && item.checked === true)
+                            arr.push(letters[random].toUpperCase());
+                        if (item.name === 'Include digits' && item.checked === true)
+                            arr.push(Math.round(Math.random() * 9));
+                        if (item.name === 'Include special symbols' && item.checked === true)
+                            arr.push(specialsymbols[random]);
+                    }
+                })
+            return arr.sort(() => Math.random() - 0.5).join('').slice(0, length);
+        },
+    },
+         
 })
