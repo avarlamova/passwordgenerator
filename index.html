@@ -7,13 +7,16 @@
 </head>
 <body>
     <div id="password">
+
+        <div id="options">
         <span>Choose length</span><br />
         <input type="range" v-model="length" id="range" class="range-slider" min="6" max="32" value="8"> <br />
     <label for="range" > Length: {{ length }}</label><br/>
     <label v-for="option in options">{{ option.name }} 
  <input type="checkbox" v-model="option.checked"><br />   
         </label>
-     <span @click="copy"> {{generatePassword}}</span>
+            </div>
+     <span id="passwordbox" @click="copy"> {{generatePassword}}</span>
      <button @click="copy">Copy</button>
 
     </div>
