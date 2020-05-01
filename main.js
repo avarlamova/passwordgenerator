@@ -1,35 +1,37 @@
 ﻿new Vue ({
     el: '#password',
-    data: {
-        options: [
-            {
-                name: 'Include lowercase',
-                checked: true,
-            },
+    data() {
+        return {
+            password: ' ',
+            refresh: false,
+            length:12,
+            options: [
+                {
+                    name: 'Include lowercase',
+                    checked: false,
+                },
 
-            {
-                name: 'Include uppercase',
-                checked: false,
-            },
-            {
-                name: 'Include digits',
-                checked: true,
-            },
-            {
-                name: 'Include special symbols',
-                checked: false,
-            }
-        ],
-            password: '',
-            settings: {
-            length: 12,
-        },
+                {
+                    name: 'Include uppercase',
+                    checked: false,
+                },
+                {
+                    name: 'Include digits',
+                    checked: true,
+                },
+                {
+                    name: 'Include special symbols',
+                    checked: false,
+                }
+            ],
+        };
     },
+     computed: {
      generatePassword() {
             let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
             let specialsymbols = ["!", "$", "%", "&", "?", "+", "*", "#", "-", "/"];
             let arr = [];
-            let length = this.settings.length;
+            let length = this.length;
             let actualcount = 0;
             [...this.options]
                 .map(item => {
@@ -53,6 +55,21 @@
                 })
             return arr.sort(() => Math.random() - 0.5).join('').slice(0, length);
         },
+    },
+      methods: {
+        copy() {
+
+            let copied = document.createElement("textarea");
+            copied.style.opacity = '0';
+            copied.style.position = 'fixed';
+            copied.value = this.generatePassword;
+            password.append(copied);
+            copied.select();
+            document.execCommand('copy');
+            password.removeChild(copied);
+            alert ('Copied successfully!')
+        },
+
     },
          
 })
