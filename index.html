@@ -3,23 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Quicksand:wght@700&display=swap" rel="stylesheet">
-
     <title>Password generator</title>
 </head>
 <body>
     <div id="password">
-        <div class=length> 
+
+        <div id="options">
         <span>Choose length</span><br />
         <input type="range" v-model="length" id="range" class="range-slider" min="6" max="32" value="8"> <br />
     <label for="range" > Length: {{ length }}</label><br/>
-        </div>
-        <div class=options> 
     <label v-for="option in options">{{ option.name }} 
  <input type="checkbox" v-model="option.checked"><br />   
         </label>
-        </div>  
-     <span class="passwordbox" @click="copy"> {{generatePassword}}</span>
+            </div>
+     <span id="passwordbox" @click="copy"> {{generatePassword}}</span>
      <button @click="copy">Copy</button>
 
     </div>
