@@ -1,0 +1,14 @@
+﻿body {
+font-size:22px;
+font-family: 'Quicksand', sans-serif;
+}
+.options {
+    color:red;
+}
+.length {
+    font-family: 'Quicksand', sans-serif;
+}
+.passwordbox {
+    color:green;
+    font-family: 'Fira Sans', sans-serif
+}
