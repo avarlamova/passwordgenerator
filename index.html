@@ -9,6 +9,7 @@
 </head>
 <body>
     <div id="password">
+        <h1>Password generator</h1>
         <div class=length> 
         <span>Choose length</span><br />
         <input type="range" v-model="length" id="range" class="range-slider" min="6" max="32" value="8"> <br />
@@ -16,11 +17,13 @@
         </div>
         <div class=options> 
     <label v-for="option in options">{{ option.name }} 
- <input type="checkbox" v-model="option.checked"><br />   
+ <input type="checkbox" v-model="option.checked">
+ <span class=checkbox></span> 
         </label>
         </div>  
-     <span class="passwordbox" @click="copy"> {{generatePassword}}</span>
-     <button @click="copy">Copy</button>
+     <span class="passwordbox" @click="copy"> {{generatePassword}}</span> <br />
+     
+     <button class ="copyButton" @click="copy">Copy</button>
 
     </div>
 
