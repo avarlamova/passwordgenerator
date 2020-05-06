@@ -4,7 +4,7 @@
         return {
             password: ' ',
             refresh: false,
-            length:12,
+            length:18,
             options: [
                 {
                     name: 'Include lowercase',

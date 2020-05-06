@@ -15,6 +15,29 @@ h1 {
     color: white;
     font-size: 32px;
 }
+
+input[type=range] {
+    -webkit-appearance: none; 
+    width: 100%;
+    background: transparent; 
+  }
+
+
+  input[type=range]:focus {
+    outline: none; 
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid indigo;
+    height: 15px;
+    width: 15px;
+    border-radius: 2px;
+    background: violet;
+    cursor: pointer;
+    margin-top: -14px; 
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; 
+  }
 .options {
     margin: 1em 20em 1em 20em;
     height:185px;
@@ -50,5 +73,5 @@ input[type='checkbox'] {
     font-size: 26px;
     height: 40px;
     width: 90px;
-    margin: 0,8em 0 0 0;
+    margin: 1em 6em 0 6em;
 }
