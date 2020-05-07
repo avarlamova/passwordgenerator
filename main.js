@@ -3,7 +3,7 @@
     data() {
         return {
             password: ' ',
-            refresh: false,
+            checkedoption:false,
             length:18,
             options: [
                 {
@@ -69,7 +69,9 @@
             password.removeChild(copied);
             alert ('Copied successfully!')
         },
-
+        check() {
+            this.checkedoption=!this.checkedoption;
+        }
     },
          
 })
