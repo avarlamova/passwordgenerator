@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Quicksand:wght@500&display=swap" rel="stylesheet">
 
     <title>Password generator</title>
 </head>
@@ -16,7 +16,7 @@
     <label for="range" > Length: {{ length }}</label><br/>
         </div>
         <div class="options"> 
-    <label  @click="check" v-for="option in options" v-bind:class="{ checked: checkedoption }">{{ option.name }} 
+    <label  v-for="option in options" v-bind:class="{ checked: option.checked }">{{ option.name }} 
  <input type="checkbox" v-model="option.checked">
  <span class=checkbox></span> 
         </label>

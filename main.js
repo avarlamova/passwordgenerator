@@ -69,9 +69,7 @@
             password.removeChild(copied);
             alert ('Copied successfully!')
         },
-        check() {
-            this.checkedoption=!this.checkedoption;
-        }
+      
     },
          
 })
