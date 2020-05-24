@@ -3,7 +3,7 @@
     data() {
         return {
             password: ' ',
-            refresh: false,
+            refresh: true,
             length:12,
             options: [
                 {
@@ -71,5 +71,5 @@
         },
 
     },
-         
+
 })

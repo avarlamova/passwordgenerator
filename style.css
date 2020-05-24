@@ -43,6 +43,16 @@ input[type='checkbox'] {
     margin: -1em 1em 1em 15em;
 }
 
+.checkbox:hover {
+    background-color: violet;
+}
+
+.checkedoption {
+color: red; 
+background-color: red;  
+height:40px;
+}
+
 .copyButton {
     background-color:#665f9c;
     color: white;

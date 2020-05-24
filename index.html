@@ -18,12 +18,14 @@
         <div class=options> 
     <label v-for="option in options">{{ option.name }} 
  <input type="checkbox" v-model="option.checked">
- <span class=checkbox></span> 
+ <span v-bind:id = "{checkedoption: options.checked}" class="checkbox"></span> 
         </label>
         </div>  
      <span class="passwordbox" @click="copy"> {{generatePassword}}</span> <br />
      
      <button class ="copyButton" @click="copy">Copy</button>
+
+     <button v-bind:class = "{checkedoption: options.checked}">FF</button> 
 
     </div>
 
