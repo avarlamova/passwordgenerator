@@ -3,8 +3,13 @@
     data() {
         return {
             password: ' ',
+<<<<<<< HEAD
             refresh: true,
             length:12,
+=======
+            checkedoption:false,
+            length:18,
+>>>>>>> c49272bfd6f5d8c23f163e37fec34dc99adb8ce4
             options: [
                 {
                     name: 'Include lowercase',
@@ -69,7 +74,7 @@
             password.removeChild(copied);
             alert ('Copied successfully!')
         },
-
+      
     },
 
 })
