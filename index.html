@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Quicksand:wght@500&display=swap" rel="stylesheet">
-
     <title>Password generator</title>
 </head>
+
 <body>
     <div id="password">
         <h1>Password generator</h1>
-        <div class=length> 
-        <span>Choose length</span><br />
-        <input type="range" v-model="length" id="range" class="range-slider" min="6" max="32" value="8"> <br />
-    <label for="range" > Length: {{ length }}</label><br/>
+
+        <div class="length"> 
+            <span>Choose length</span><br />
+            <input type="range" v-model="length" id="range" class="range-slider" min="6" max="32" value="8"> <br />
+            <label for="range" > Length: {{ length }}</label><br/>
         </div>
+
         <div class="options"> 
-    <label  v-for="option in options" v-bind:class="{ checked: option.checked }">{{ option.name }} 
- <input type="checkbox" v-model="option.checked">
- <span v-bind:id = "{checkedoption: options.checked}" class="checkbox"></span> 
-        </label>
+            <label  v-for="option in options" v-bind:class="{ checked: option.checked }">{{ option.name }} 
+            <input type="checkbox" v-model="option.checked">
+            <span class="checkbox"></span> 
+            </label>
         </div>  
      <span class="passwordbox" @click="copy"> {{generatePassword}}</span> <br />
-     
      <button class ="copyButton" @click="copy">Copy</button>
-
-     <button v-bind:class = "{checkedoption: options.checked}">FF</button> 
-
     </div>
-
 
     <script src="https://unpkg.com/vue"></script>
     <script src="main.js"></script>

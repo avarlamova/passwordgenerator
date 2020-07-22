@@ -17,19 +17,17 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 }
 
-:focus {
-	outline: 0;
-}
-
 body {
     line-height: 1;
-font-size:23px;
-font-family: 'Quicksand', sans-serif;
-background-color: indigo;
-text-align: center;
+    font-size:23px;
+    font-family: 'Quicksand', sans-serif;
+    background-color: indigo;
+    text-align: center;
 }
+
 .options, .length, .passwordbox {
     background-color:white;
+    color: #414040;
     border-width: 8px;
     padding:8px;
     border-style: solid;
@@ -47,18 +45,17 @@ input[type=range] {
     background: transparent; 
   }
 
-  input[type=range]:focus {
+input[type=range]:focus {
     outline: none; 
   }
   
-  input[type=range]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 15px;
     width: 15px;
     border-radius: 2px;
     background-color:#1727b4;
     margin-top: -1px; 
-   
   }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -75,10 +72,12 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 .length {
     border-radius: 15px;
-    margin: 1em 22em 1em 22em;   
+    margin: 1em 22em 1em 22em; 
+    font-weight: 700;
 }
 .checked {
     font-weight: 700;
+    color: black;
 }
 .passwordbox {
     margin: 10em 0  0  0;
@@ -107,18 +106,7 @@ input[type='checkbox']:checked + span {
 }
 
 .checkbox:hover {
-<<<<<<< HEAD
     background-color: violet;
-}
-
-.checkedoption {
-color: red; 
-background-color: red;  
-height:40px;
-=======
-    box-shadow: 2px 2px 0px 0px rgba(255, 255, 255, 1) inset, -2px -2px 0px 0px white inset;
-    background-color: #665f9c;
->>>>>>> c49272bfd6f5d8c23f163e37fec34dc99adb8ce4
 }
 
 .copyButton {

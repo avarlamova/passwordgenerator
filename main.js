@@ -3,13 +3,10 @@
     data() {
         return {
             password: ' ',
-<<<<<<< HEAD
             refresh: true,
             length:12,
-=======
             checkedoption:false,
             length:18,
->>>>>>> c49272bfd6f5d8c23f163e37fec34dc99adb8ce4
             options: [
                 {
                     name: 'Include lowercase',
@@ -63,7 +60,6 @@
     },
       methods: {
         copy() {
-
             let copied = document.createElement("textarea");
             copied.style.opacity = '0';
             copied.style.position = 'fixed';
