@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="password">
+    <div id="app">
         <h1>Password generator</h1>
 
         <div class="length"> 
@@ -24,7 +24,7 @@
             <span class="checkbox"></span> 
             </label>
         </div>  
-     <span class="passwordbox" @click="copy"> {{generatePassword}}</span> <br />
+     <span class="passwordbox" @click="copy"> {{generatedPassword}}</span> <br />
      <button class ="copyButton" @click="copy">Copy</button>
     </div>
 
