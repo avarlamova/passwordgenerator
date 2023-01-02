@@ -2,29 +2,26 @@
   el: "#app",
   data() {
     return {
-      password: " ",
-      refresh: true,
-      checkedoption: false,
+      password: "",
       length: 18,
-      options: [
-        {
+      options: {
+        lowercase: {
           name: "Include lowercase",
           checked: false,
         },
-
-        {
+        uppercase: {
           name: "Include uppercase",
           checked: false,
         },
-        {
+        digits: {
           name: "Include digits",
           checked: true,
         },
-        {
+        special: {
           name: "Include special symbols",
           checked: false,
         },
-      ],
+      },
     };
   },
   computed: {
@@ -57,38 +54,40 @@
         "y",
         "z",
       ];
-      let specialsymbols = ["!", "$", "%", "&", "?", "+", "*", "#", "-", "/"];
+      let specialsymbols = ["!", "$", "%", "&", "?", "+", "*", "#", "-"];
 
-      let arr = [];
-      let length = this.length;
-      let actualcount = 0;
-      [...this.options].map((item) => {
-        if (item.checked === true) actualcount = actualcount + 1;
-      });
-      if (actualcount === 0) return "You should check at least one option!";
-      [...this.options].map((item) => {
-        for (i = 0; i < length; i++) {
-          let random = Math.floor(Math.random() * length);
-          if (item.name === "Include lowercase" && item.checked === true)
-            arr.push(letters[random]);
-          if (item.name === "Include uppercase" && item.checked === true)
-            arr.push(letters[random].toUpperCase());
-          if (item.name === "Include digits" && item.checked === true)
-            arr.push(Math.round(Math.random() * 9));
-          if (item.name === "Include special symbols" && item.checked === true)
-            arr.push(specialsymbols[random]);
-        }
-      });
-      return arr
+      let passwordArr = [];
+
+      if (this.checkedOptions === 0)
+        return "You should check at least one option!";
+
+      for (i = 0; i < this.length; i++) {
+        let random = Math.floor(Math.random() * this.length);
+        if (this.options["lowercase"].checked === true)
+          passwordArr.push(letters[random]);
+        if (this.options["uppercase"].checked === true)
+          passwordArr.push(letters[random].toUpperCase());
+        if (this.options["digits"].checked === true)
+          passwordArr.push(Math.round(Math.random() * 9));
+        if (this.options["special"].checked === true)
+          passwordArr.push(specialsymbols[random]);
+      }
+      return passwordArr
         .sort(() => Math.random() - 0.5)
         .join("")
-        .slice(0, length);
+        .slice(0, this.length);
+    },
+    checkedOptions() {
+      return Object.values(this.options).filter((el) => el.checked === true)
+        .length;
     },
   },
   methods: {
     async copy() {
-      await navigator.clipboard.writeText(this.generatedPassword);
-      alert("Copied successfully!");
+      if (this.checkedOptions > 0) {
+        await navigator.clipboard.writeText(this.generatedPassword);
+        alert("Copied successfully!");
+      }
     },
   },
 });
