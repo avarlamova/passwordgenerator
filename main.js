@@ -86,15 +86,8 @@
     },
   },
   methods: {
-    copy() {
-      let copied = document.createElement("textarea");
-      copied.style.opacity = "0";
-      copied.style.position = "fixed";
-      copied.value = this.generatedPassword;
-      document.body.append(copied);
-      copied.select();
-      document.execCommand("copy");
-      password.removeChild(copied);
+    async copy() {
+      await navigator.clipboard.writeText(this.generatedPassword);
       alert("Copied successfully!");
     },
   },

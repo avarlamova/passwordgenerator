@@ -39,7 +39,9 @@
           <span class="checkbox"></span>
         </label>
       </div>
-      <span class="passwordbox" @click="copy"> {{generatedPassword}}</span>
+      <span id="password" class="passwordbox" @click="copy">
+        {{generatedPassword}}
+      </span>
       <br />
       <button class="copyButton" @click="copy">Copy</button>
     </div>
